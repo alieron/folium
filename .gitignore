@@ -1,8 +1,9 @@
 # Directories
 .vs/
-Binaries/
+bin/
+obj/
 
-# Files
+# Project Files
 *.vcxproj
 *.vcxproj.user
 *.vcxproj.filters
@@ -10,5 +11,5 @@ Binaries/
 *.log
 Makefile
 
-# Exclude
-!Vendor/Binaries
+#ImGUI
+imgui.ini

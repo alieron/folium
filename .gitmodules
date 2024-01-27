@@ -1,8 +1,0 @@
-[submodule "gui/lib/glfw"]
-	path = gui/lib/glfw
-	url = https://github.com/alieron/glfw.git
-	branch = light
-[submodule "gui/lib/imgui"]
-	path = gui/lib/imgui
-	url = https://github.com/alieron/imgui.git
-	branch = docking-glfw-opengl
