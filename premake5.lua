@@ -1,5 +1,6 @@
 -- premake5.lua
--- Refer to: https://github.com/premake/premake-core/wiki/Tutorial-Premake-example-with-GLFW-and-OpenGL
+-- For GLFW linking refer to: https://github.com/premake/premake-core/wiki/Tutorial-Premake-example-with-GLFW-and-OpenGL
+
 workspace "folium"
    architecture "x64"
    configurations { "Debug", "Release", "Dist" }
@@ -52,13 +53,13 @@ end
 function linkGLFW()
 	libdirs "lib/glfw/lib-vc2022"
 
-	-- Our static lib should not link against GLFW
+	-- Static lib should not link against GLFW
 	filter "kind:not StaticLib"
 		links "glfw3"
 	filter {}
 end
 
--- GUI code
+-- GUI project
 project "folium-gui"
     kind "StaticLib"
     language "C++"
@@ -77,7 +78,7 @@ project "folium-gui"
     includeGLFW()
     includeImGUI()
     
-
+-- App project
 project "folium-app"
     kind "ConsoleApp"
     language "C++"
@@ -102,8 +103,6 @@ project "folium-app"
     
     linkGLFW()
     links "folium-gui"
-    -- links "folium-gui.lib"
-    -- libdirs { "bin/windows-x86_64/%{cfg.buildcfg}/folium-gui", }
 
     -- Additional system based linking/settings
     filter { "system:windows" }
